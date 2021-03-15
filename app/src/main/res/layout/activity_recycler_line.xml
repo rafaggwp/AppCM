@@ -15,14 +15,14 @@
             android:id="@+id/title"
             android:layout_margin="10dp"
             android:textStyle="bold"
-            android:text="Title"
+            android:text="@string/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
 
         <TextView
             android:id="@+id/description"
-            android:text="Description"
+            android:text="@string/description"
             android:layout_below="@id/title"
             android:layout_alignLeft="@+id/title"
             android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
 
         <TextView
             android:id="@+id/date"
-            android:text="Date"
+            android:text="@string/date"
             android:layout_alignTop="@id/title"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
