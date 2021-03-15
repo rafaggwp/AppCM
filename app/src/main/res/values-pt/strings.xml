@@ -5,4 +5,7 @@
     <string name="username">Utilizador</string>
     <string name="password">Palavra-Passe</string>
     <string name="notes">Notas</string>
+    <string name="title">Título</string>
+    <string name="description">Descrição</string>
+    <string name="date">Data</string>
 </resources>
