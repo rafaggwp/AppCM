@@ -12,4 +12,6 @@
     <string name="insertdescription">Inserir Descrição</string>
     <string name="empty_not_saved">Campos Vazios</string>
     <string name="myNotes">As minhas notas:</string>
+    <string name="add">Adicionar</string>
+    <string name="list">Lista</string>
 </resources>

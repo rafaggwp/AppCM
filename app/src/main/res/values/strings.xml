@@ -12,4 +12,6 @@
     <string name="empty_not_saved">Empty Fields</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="myNotes">My notes:</string>
+    <string name="add">Add</string>
+    <string name="list">List</string>
 </resources>
