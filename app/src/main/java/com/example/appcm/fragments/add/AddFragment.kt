@@ -52,10 +52,10 @@ class AddFragment : Fragment() {
                                 description
                             )
                             mNoteViewModel.addNote(note)
-                            Toast.makeText(requireContext(), R.string.success, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), R.string.createS, Toast.LENGTH_SHORT).show()
                             findNavController().navigate(R.id.action_addFragment_to_listFragment)
                   }else{
-                            Toast.makeText(requireContext(), R.string.unsuccess, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), R.string.createW, Toast.LENGTH_SHORT).show()
                                 //
                   }
     }
@@ -63,5 +63,7 @@ class AddFragment : Fragment() {
     private fun inputCheck(title: String, description: String): Boolean{
         return (!(TextUtils.isEmpty(title)) && !(TextUtils.isEmpty(description)))
     }
+
+
 
 }

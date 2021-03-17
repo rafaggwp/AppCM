@@ -26,4 +26,6 @@
     <string name="uSureA">Tem a certeza que pretende apagar todas as notas?</string>
     <string name="success">Sucesso</string>
     <string name="unsuccess">Insucesso</string>
+    <string name="createW">Por favor preencha todos os campos!</string>
+    <string name="createS">Nota criada com sucesso!</string>
 </resources>

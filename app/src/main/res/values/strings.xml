@@ -26,5 +26,7 @@
     <string name="uSureA">Are you sure that you want to delete all notes?</string>
     <string name="success">Success!</string>
     <string name="unsuccess">Unsuccessful</string>
+    <string name="createS">Note created successfully!</string>
+    <string name="createW">Please fill out all fields!</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
