@@ -16,5 +16,13 @@
     <string name="list">List</string>
     <string name="save">Save</string>
     <string name="update">Update</string>
+    <string name="del">Delete</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="uSure">Are you sure that you want to delete this note?</string>
+    <string name="rem">Successfully removed!</string>
+    <string name="updateS">Successfully updated!</string>
+    <string name="updateW">Please fill out all fields!</string>
+    <string name="uSureA">Are you sure that you want to delete all notes?</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

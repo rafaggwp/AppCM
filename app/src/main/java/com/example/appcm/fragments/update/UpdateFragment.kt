@@ -1,11 +1,10 @@
 package com.example.appcm.fragments.update
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -22,8 +21,10 @@ class UpdateFragment : Fragment() {
 
     private lateinit var mNoteViewModel: NoteViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_update, container, false)
 
@@ -32,33 +33,67 @@ class UpdateFragment : Fragment() {
         view.updateTitle.setText(args.currentNote.title)
         view.updateDescription.setText(args.currentNote.description)
 
-        view.update_btn.setOnClickListener{
+        view.update_btn.setOnClickListener {
             updateNote()
         }
+        //add menu
+        setHasOptionsMenu(true)
+
+
 
         return view
     }
 
-    private fun updateNote(){
+    private fun updateNote() {
         val title = updateTitle.text.toString()
         val description = updateDescription.text.toString()
 
-        if(inputCheck(title, description)){
+        if (inputCheck(title, description)) {
             val updatedNote = Note(args.currentNote.id, title, description)
             mNoteViewModel.updateNote(updatedNote)
 
-            Toast.makeText(requireContext(), "Updated Successfully!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "${R.string.updateS}", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_updateFragment_to_listFragment2)
 
-        }else{
-            Toast.makeText(requireContext(), "Please fill out all fields!", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(requireContext(), "${R.string.updateW}", Toast.LENGTH_SHORT)
+                .show()
 
         }
 
     }
 
-    private fun inputCheck(title: String, description: String): Boolean{
+    private fun inputCheck(title: String, description: String): Boolean {
         return !(TextUtils.isEmpty(title) && TextUtils.isEmpty(description))
     }
 
-}
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.delete_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_delete) {
+            deleteNote()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun deleteNote() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton(R.string.yes) { _, _ ->
+
+            mNoteViewModel.deleteNote(args.currentNote)
+            Toast.makeText(requireContext(),
+                "${R.string.rem}",
+                Toast.LENGTH_SHORT ).show()
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment2)
+        }
+
+
+        builder.setNegativeButton(R.string.no) { _, _ -> }
+        builder.setTitle(R.string.del)
+        builder.setMessage(R.string.uSure)
+        builder.create().show()
+
+        }
+    }

@@ -16,4 +16,12 @@
     <string name="list">Lista</string>
     <string name="save">Guardar</string>
     <string name="update">Alterar</string>
+    <string name="del">Apagar</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="uSure">Tem a certeza que pretende apagar esta nota?</string>
+    <string name="rem">Removido com sucesso!</string>
+    <string name="updateS">Alterado com sucesso!</string>
+    <string name="updateW">Por favor preencha todos os campos!</string>
+    <string name="uSureA">Tem a certeza que pretende apagar todas as notas?</string>
 </resources>
