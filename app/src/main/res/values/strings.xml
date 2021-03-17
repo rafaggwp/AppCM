@@ -24,5 +24,7 @@
     <string name="updateS">Successfully updated!</string>
     <string name="updateW">Please fill out all fields!</string>
     <string name="uSureA">Are you sure that you want to delete all notes?</string>
+    <string name="success">Success!</string>
+    <string name="unsuccess">Unsuccessful</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

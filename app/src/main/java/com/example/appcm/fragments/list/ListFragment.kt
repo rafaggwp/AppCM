@@ -66,7 +66,7 @@ class ListFragment : Fragment() {
 
         mNoteViewModel.deleteAllNotes()
         Toast.makeText(requireContext(),
-            "${R.string.rem}",
+            R.string.rem,
             Toast.LENGTH_SHORT ).show()
 
         }

@@ -52,11 +52,11 @@ class UpdateFragment : Fragment() {
             val updatedNote = Note(args.currentNote.id, title, description)
             mNoteViewModel.updateNote(updatedNote)
 
-            Toast.makeText(requireContext(), "${R.string.updateS}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), R.string.updateS, Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_updateFragment_to_listFragment2)
 
         } else {
-            Toast.makeText(requireContext(), "${R.string.updateW}", Toast.LENGTH_SHORT)
+            Toast.makeText(requireContext(), R.string.updateW, Toast.LENGTH_SHORT)
                 .show()
 
         }
@@ -64,7 +64,7 @@ class UpdateFragment : Fragment() {
     }
 
     private fun inputCheck(title: String, description: String): Boolean {
-        return !(TextUtils.isEmpty(title) && TextUtils.isEmpty(description))
+        return (!(TextUtils.isEmpty(title)) && !(TextUtils.isEmpty(description)))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -84,7 +84,7 @@ class UpdateFragment : Fragment() {
 
             mNoteViewModel.deleteNote(args.currentNote)
             Toast.makeText(requireContext(),
-                "${R.string.rem}",
+                R.string.rem,
                 Toast.LENGTH_SHORT ).show()
             findNavController().navigate(R.id.action_updateFragment_to_listFragment2)
         }

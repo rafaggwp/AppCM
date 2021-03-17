@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -21,9 +22,13 @@ class AddFragment : Fragment() {
     private lateinit var mNoteViewModel: NoteViewModel
 
     override fun onCreateView(
+
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
+        getActivity()?.getWindow()?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add, container, false)
 
@@ -47,16 +52,16 @@ class AddFragment : Fragment() {
                                 description
                             )
                             mNoteViewModel.addNote(note)
-                            Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), R.string.success, Toast.LENGTH_SHORT).show()
                             findNavController().navigate(R.id.action_addFragment_to_listFragment)
                   }else{
-                            Toast.makeText(requireContext(), "Insuccess", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), R.string.unsuccess, Toast.LENGTH_SHORT).show()
                                 //
                   }
     }
 
     private fun inputCheck(title: String, description: String): Boolean{
-        return !(TextUtils.isEmpty(title) && TextUtils.isEmpty(description))
+        return (!(TextUtils.isEmpty(title)) && !(TextUtils.isEmpty(description)))
     }
 
 }

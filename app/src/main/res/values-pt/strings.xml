@@ -24,4 +24,6 @@
     <string name="updateS">Alterado com sucesso!</string>
     <string name="updateW">Por favor preencha todos os campos!</string>
     <string name="uSureA">Tem a certeza que pretende apagar todas as notas?</string>
+    <string name="success">Sucesso</string>
+    <string name="unsuccess">Insucesso</string>
 </resources>
