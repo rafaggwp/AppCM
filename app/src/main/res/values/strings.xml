@@ -7,4 +7,9 @@
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="date">Date</string>
+    <string name="inserttitle">Insert Title</string>
+    <string name="insertdescription">Insert Description</string>
+    <string name="empty_not_saved">Empty Fields</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="myNotes">My notes:</string>
 </resources>

@@ -8,4 +8,8 @@
     <string name="title">Título</string>
     <string name="description">Descrição</string>
     <string name="date">Data</string>
+    <string name="inserttitle">Inserir Título</string>
+    <string name="insertdescription">Inserir Descrição</string>
+    <string name="empty_not_saved">Campos Vazios</string>
+    <string name="myNotes">As minhas notas:</string>
 </resources>
