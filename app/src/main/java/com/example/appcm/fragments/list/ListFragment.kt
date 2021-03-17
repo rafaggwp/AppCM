@@ -1,6 +1,5 @@
 package com.example.appcm.fragments.list
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appcm.R
-import com.example.appcm.data.NoteViewModel
+import com.example.appcm.viewmodel.NoteViewModel
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 

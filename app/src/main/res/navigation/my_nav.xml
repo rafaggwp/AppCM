@@ -21,5 +21,20 @@
         <action
             android:id="@+id/action_listFragment_to_addFragment"
             app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_updateFragment2"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.appcm.fragments.update.UpdateFragment"
+        android:label="@string/update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_listFragment2"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentNote"
+            app:argType="com.example.appcm.model.Note" />
     </fragment>
 </navigation>

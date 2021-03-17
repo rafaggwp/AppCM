@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.appcm.R
-import com.example.appcm.data.Note
-import com.example.appcm.data.NoteViewModel
+import com.example.appcm.model.Note
+import com.example.appcm.viewmodel.NoteViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
 
@@ -41,7 +41,11 @@ class AddFragment : Fragment() {
         val title = editTextTitle.text.toString()
         val description = editTextDescription.text.toString()
                   if (inputCheck(title, description)){
-                            val note = Note(0, title, description,0)
+                            val note = Note(
+                                0,
+                                title,
+                                description
+                            )
                             mNoteViewModel.addNote(note)
                             Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
                             findNavController().navigate(R.id.action_addFragment_to_listFragment)

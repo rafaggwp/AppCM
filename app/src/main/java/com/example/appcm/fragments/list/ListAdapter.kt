@@ -3,9 +3,10 @@ package com.example.appcm.fragments.list
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appcm.R
-import com.example.appcm.data.Note
+import com.example.appcm.model.Note
 import kotlinx.android.synthetic.main.custom_row.view.*
 
 class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
@@ -30,6 +31,10 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         holder.itemView.txt_title.text = currentItem.title
         holder.itemView.txt_description.text = currentItem.description
 
+        holder.itemView.rowLayout.setOnClickListener{
+            val action = ListFragmentDirections.actionListFragmentToUpdateFragment2(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
     fun setData(note: List<Note>){
         this.noteList = note
