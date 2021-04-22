@@ -29,7 +29,7 @@ class AddFragment : Fragment() {
 
     ): View? {
         getActivity()?.getWindow()?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
-        // Inflate the layout for this fragment
+
         val view = inflater.inflate(R.layout.fragment_add, container, false)
 
         mNoteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
