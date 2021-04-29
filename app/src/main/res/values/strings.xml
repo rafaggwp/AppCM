@@ -28,5 +28,7 @@
     <string name="unsuccess">Unsuccessful</string>
     <string name="createS">Note created successfully!</string>
     <string name="createW">Please fill out all fields!</string>
+    <string name="usernamecheck">Username required</string>
+    <string name="passwordcheck">Password required</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
