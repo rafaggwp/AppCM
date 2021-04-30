@@ -1,6 +1,5 @@
 package com.example.appcm
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.gms.maps.GoogleMap
@@ -18,6 +17,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var markers: List<Marker>
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
@@ -26,6 +26,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
+
 
     /**
      * Manipulates the map once available.
@@ -52,6 +53,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                     }
                 }
             }
+
             override fun onFailure(call: Call<List<Marker>>, t: Throwable) {
                 TODO("Not yet implemented")
             }
