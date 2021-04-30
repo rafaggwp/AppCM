@@ -1,18 +1,22 @@
 package com.example.appcm
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
-import com.example.appcm.api.LoginResponse
+import androidx.appcompat.app.AppCompatActivity
+import com.example.appcm.api.EndPoints
+import com.example.appcm.api.LoginPost
 import com.example.appcm.api.ServiceBuilder
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_login.*
-import javax.security.auth.callback.Callback
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class Login : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -25,31 +29,54 @@ class Login : AppCompatActivity() {
         }
 
        val button1 = findViewById<Button>(R.id.btn_login)
-        button1.setOnClickListener {
+            button1.setOnClickListener {
 
 
-            val intent = Intent(this@Login, MapActivity::class.java)
 
-            val name = edit_name.text.toString().trim()
-            val password = edit_password.text.toString().trim()
+
+            val name = edit_name.text.toString()
+            val password = edit_password.text.toString()
 
             if(name.isEmpty()){
-                edit_name.error = "123"
+                edit_name.error = getString(R.string.usernamecheck)
                 edit_name.requestFocus()
                 return@setOnClickListener
             }
             if(password.isEmpty()){
-                edit_password.error = "123"
+                edit_password.error = getString(R.string.passwordcheck)
                 edit_password.requestFocus()
                 return@setOnClickListener
             }
 
-         /*   ServiceBuilder.instance.postTest(name, password).
-                enqueue(object: Callback<LoginResponse>{
 
-                })*/
+            val request = ServiceBuilder.buildService(EndPoints::class.java)
+            val call = request.postTest(name, password)
 
-            startActivity(intent)
+
+            call.enqueue(object: Callback<LoginPost> {
+                override fun onResponse(call: Call<LoginPost>, response: Response<LoginPost>) {
+
+                    if (response.isSuccessful){
+                        val c: LoginPost = response.body()!!
+                        if(!c.status){
+                            Toast.makeText(this@Login, "erro", Toast.LENGTH_SHORT).show()
+                        }else{
+                            Toast.makeText(this@Login, "Bem-vindo", Toast.LENGTH_SHORT).show()
+
+                            val intent = Intent(this@Login, MapActivity::class.java)
+                            startActivity(intent)
+                        }
+
+                    }
+                }
+
+                override fun onFailure(call: Call<LoginPost>, t: Throwable) {
+
+                }
+            })
+
+
+
 
         }
 
@@ -57,4 +84,6 @@ class Login : AppCompatActivity() {
 
 
 
+
 }
+
