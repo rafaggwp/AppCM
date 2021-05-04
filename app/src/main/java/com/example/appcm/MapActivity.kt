@@ -108,7 +108,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                     }
                 }
 
-            //fail
 
             override fun onFailure(call: Call<List<Marker>>, t: Throwable) {
                 TODO("Not yet implemented")
