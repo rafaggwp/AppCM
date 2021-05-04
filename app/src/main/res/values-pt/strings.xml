@@ -30,4 +30,5 @@
     <string name="createS">Nota criada com sucesso!</string>
     <string name="usernamecheck">É necessário preencher o nome de utilizador</string>
     <string name="passwordcheck">É necessário preencher a password</string>
+    <string name="errosp">Falha ao guardar</string>
 </resources>

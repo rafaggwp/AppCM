@@ -31,6 +31,11 @@
     <string name="usernamecheck">Username required</string>
     <string name="passwordcheck">Password required</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDO3RV3JLvgcTYvJWSTvzj-eftVF4bRMDE</string>
+    <string name="pref_file_key" translatable="false">com.example.appcm.api.User</string>
+    <string name="pref_is_user_login" translatable="false">isUserLogin</string>
+    <string name="pref_name" translatable="false">name</string>
+    <string name="pref_user_id" translatable="false">id_user</string>
+    <string name="errosp">Save failed</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

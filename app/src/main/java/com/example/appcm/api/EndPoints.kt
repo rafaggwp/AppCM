@@ -5,6 +5,12 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface EndPoints {
+
+    //GET USERS BY USERNAME
+    @GET("nomes/{name}")
+    fun getUsersByName(@Path("name") name: String): Call<User>
+
+
     //post para login
     @FormUrlEncoded
     @POST("postarverifica")

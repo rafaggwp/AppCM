@@ -1,7 +1,14 @@
 package com.example.appcm
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import com.example.appcm.Login.Companion.EXTRA_USERID
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -11,11 +18,15 @@ import com.example.appcm.api.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import com.example.appcm.Login
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var markers: List<Marker>
+    private var userID: Int? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,20 +36,46 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        this.supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_login_24)
+
+
+        //  setSupportActionBar(findViewById(R.id.toolbar))
+
+
     }
 
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.logout_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.logout -> {
+                val sharedPrefs: SharedPreferences =
+                        getSharedPreferences(getString(R.string.pref_file_key), Context.MODE_PRIVATE)
+
+                val editor = sharedPrefs.edit()
+                editor.clear().apply()
+
+                val intent = Intent(this, Login::class.java)
+                startActivity(intent)
+                finish()
+                return true
+
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
+    }
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+
+        val intent: Bundle? = intent.extras
+        userID = intent?.getInt(Login.EXTRA_USERID)
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.getMarker()
@@ -49,10 +86,28 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                     markers = response.body()!!
                     for (marker in markers){
                         var position = LatLng(marker.lat.toString().toDouble(), marker.lng.toString().toDouble())
-                        mMap.addMarker(MarkerOptions().position(position).title(marker.user_id.toString() + " - " + marker.country + " - " + marker.address))
+                        if (marker.user_id == userID) {
+
+                            mMap.addMarker(
+                                    MarkerOptions().position(position)
+                                            .title("" + marker.id + " - " + marker.address).icon(
+                                                    BitmapDescriptorFactory.defaultMarker(
+                                                            BitmapDescriptorFactory.HUE_AZURE
+                                                    )
+                                            )
+                            )
+                        } else {
+                            mMap.addMarker(
+                                    MarkerOptions().position(position)
+                                            .title("" + marker.id + " - " + marker.address)
+                            )
+                        }
+                    }
+
+
                     }
                 }
-            }
+
 
             override fun onFailure(call: Call<List<Marker>>, t: Throwable) {
                 TODO("Not yet implemented")
