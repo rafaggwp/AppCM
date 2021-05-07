@@ -51,7 +51,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var lastLocation: Location
 
 
-
+  //cr
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
