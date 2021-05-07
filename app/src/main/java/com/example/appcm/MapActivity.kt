@@ -270,12 +270,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
     companion object {
-        const val EXTRA_IDUSERLOGIN = "com.estg.fixity.messages.USERIDLOGIN"
-        const val EXTRA_PROBLEMID = "com.estg.fixity.messages.PROBLEMID"
-        const val EXTRA_IDUSERREPORT = "com.estg.fixity.messages.IDUSERREPORT"
-        const val EXTRA_LATLNG = "com.estg.fixity.messages.LATLNG"
-        const val EXTRA_PROBLEMDESC = "com.estg.fixity.messages.PROBLEMDESC"
-        const val EXTRA_PROBELMCATEGORY = "com.estg.fixity.messages.PROBLEMCATEGORY"
+        const val EXTRA_IDUSERLOGIN = "USERIDLOGIN"
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
 
 
