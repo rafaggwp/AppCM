@@ -24,4 +24,14 @@ interface EndPoints {
     @GET("marker")
     fun getMarker(): Call<List<Marker>>
 
+
+    @FormUrlEncoded
+    @POST("marker/add")
+    fun postMarker(
+        @Field("descr") descr: String?,
+        @Field("mType") mType: Int?,
+        @Field("lat") lat: Double?,
+        @Field("lng") lng: Double?,
+        @Field("user_id") users_id: Int?
+    ): Call<LoginPost>
 }

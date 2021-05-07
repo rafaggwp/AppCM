@@ -31,4 +31,12 @@
     <string name="usernamecheck">É necessário preencher o nome de utilizador</string>
     <string name="passwordcheck">É necessário preencher a password</string>
     <string name="errosp">Falha ao guardar</string>
+    <string name="image_upload">Enviar Imagem</string>
+    <string name="galery_image">Imagem da Galeria</string>
+    <string name="problemType">Tipo de Problema</string>
+    <string name="descriptionmarker">Descrição do Problema</string>
+    <string name="description_required">Descrição obrigatória</string>
+    <string name="error_updating_data">Erro ao enviar dados</string>
+    <string name="errorwebservice">Erro de conecção</string>
+    <string name="reportproblem">Reportar Problema</string>
 </resources>

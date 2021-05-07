@@ -36,6 +36,14 @@
     <string name="pref_name" translatable="false">name</string>
     <string name="pref_user_id" translatable="false">id_user</string>
     <string name="errosp">Save failed</string>
+    <string name="image_upload">Upload Image</string>
+    <string name="galery_image">Galery Image</string>
+    <string name="problemType">Problem Type</string>
+    <string name="descriptionmarker">Problem Description</string>
+    <string name="description_required">Description Required</string>
+    <string name="error_updating_data">Error updating data</string>
+    <string name="errorwebservice">Connection error</string>
+    <string name="reportproblem">Report Problem</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

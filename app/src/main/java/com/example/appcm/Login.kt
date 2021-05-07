@@ -164,7 +164,7 @@ class Login : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_USERID = "com.estg.fixity.messages.USERID"
+        const val EXTRA_USERID = "com.example.appcm.EXTRA_UserID"
     }
 }
 
